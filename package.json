@@ -1,0 +1,28 @@
+{
+  "name": "mta-gtfs",
+  "version": "0.0.0",
+  "description": "An NYC MTA API library",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "mta",
+    "gtfs",
+    "nyc",
+    "transit"
+  ],
+  "author": "Amalia Viti",
+  "license": "MIT",
+  "dependencies": {
+    "csv-parse": "0.0.9",
+    "protobufjs": "^3.8.2",
+    "superagent": "^0.21.0",
+    "underscore": "^1.8.2",
+    "xml2js": "^0.4.5"
+  },
+  "devDependencies": {
+    "mocha": "^2.1.0",
+    "should": "^5.0.1"
+  }
+}

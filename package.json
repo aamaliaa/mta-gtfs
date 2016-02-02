@@ -15,7 +15,7 @@
   "author": "Amalia Viti",
   "license": "MIT",
   "dependencies": {
-    "csv-parse": "0.0.9",
+    "csv-parse": "^1.0.1",
     "protobufjs": "^3.8.2",
     "superagent": "^0.21.0",
     "underscore": "^1.8.2",

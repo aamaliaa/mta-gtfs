@@ -2,17 +2,18 @@
 
 An NYC MTA API library
 
+## Install
+
+```
+npm install mta-gtfs --save
+```
+
 ## Usage
 
-#### MTA
-
-For feed information, see http://datamine.mta.info/list-of-feeds.
-
-In order to use the MTA real-time APIs, you will need an MTA API key from here: http://datamine.mta.info/user/register.
-
 ### Library
+
 ```
-var Mta = require('./');
+var Mta = require('mta-gtfs');
 var mta = new Mta({
   key: 'MY-MTA-API-KEY-HERE', // only needed for mta.schedule() method
   feed_id: 1                  // optional, default = 1
@@ -20,6 +21,12 @@ var mta = new Mta({
 ```
 * uses [node-fetch](https://github.com/bitinn/node-fetch) to make http requests
 * returns Promise objects and makes use of native Promises (make sure you are using >= Node v0.12)
+
+#### MTA
+
+For feed information, see http://datamine.mta.info/list-of-feeds.
+
+In order to use the MTA real-time APIs, you will need an MTA API key from here: http://datamine.mta.info/user/register.
 
 ### Get subway stop info
 

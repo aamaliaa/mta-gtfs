@@ -1,4 +1,4 @@
-# MTA
+# mta-gtfs
 
 An NYC MTA API library
 

@@ -33,6 +33,14 @@ describe('MTA', function () {
     });
   });
 
+  it('should get info for S30S', function() {
+    return mta.stop('S30S')
+    .then(function (result) {
+      result.stop_id.should.equal('S30S');
+      result.should.have.property('stop_name');
+    });
+  });
+
   it('should get info for multiple MTA subway stop', function () {
     return mta.stop(stopIds)
     .then(function (result) {

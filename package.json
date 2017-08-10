@@ -1,6 +1,6 @@
 {
   "name": "mta-gtfs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "An NYC MTA API library",
   "main": "index.js",
   "scripts": {

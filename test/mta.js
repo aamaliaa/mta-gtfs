@@ -1,6 +1,9 @@
 var should = require('should');
-var config = require('./config');
 var Mta = require('../lib/mta');
+
+var config = {
+  key: process.env.MTA_API_KEY,
+};
 
 describe('MTA', function () {
   var mta,
@@ -68,17 +71,35 @@ describe('MTA', function () {
     });
   });
 
-  it('api key is set in test/config.js', function (done) {
-    config.key.should.not.equal('your-api-key');
+  it('MTA_API_KEY should be set', function (done) {
+    config.key.should.not.equal('');
     done();
   });
 
-  it('should get schedule info for 1 MTA subway station', function () {
+  it('should get schedule info for 1 MTA subway station (number input)', function () {
     return mta.schedule(stopId)
     .then(function (result) {
       result.should.have.property('schedule');
       result.should.have.property('updatedOn');
       result.schedule[stopId].should.exist;
+    });
+  });
+
+  it('should get schedule info for 1 MTA subway station (string input)', function () {
+    return mta.schedule('128')
+    .then(function (result) {
+      result.should.have.property('schedule');
+      result.should.have.property('updatedOn');
+      result.schedule['128'].should.exist;
+    });
+  });
+
+  it('should get schedule info for a station with a different feed_id', function () {
+    return mta.schedule('A15', 26)
+    .then(function (result) {
+      result.should.have.property('schedule');
+      result.should.have.property('updatedOn');
+      result.schedule['A15'].should.exist;
     });
   });
 

@@ -72,12 +72,12 @@ mta.status('subway').then(function (result) {
 The API route this method hits is updated by the MTA every 60 seconds.
 
 ### Get real-time subway schedule data
-Only available for the following routes: 1, 2, 3, 4, 5, 6, S, L, and Staten Island Railway (http://datamine.mta.info/list-of-feeds).
+Only available for the routes found in this [list](http://datamine.mta.info/list-of-feeds).
 
-Given a single subway stop id (or an array of stop ids), it gives schedule data for both northbound and southbound trains.
+Given a single subway stop id (or an array of stop ids) and an optional feedId, it gives schedule data for both northbound and southbound trains.
 
 ```Javascript
-mta.schedule(635).then(function (result) {
+mta.schedule(635, 1).then(function (result) {
   console.log(result);
 });
 ```
@@ -88,10 +88,8 @@ The API route this method hits is updated by the MTA every 30 seconds.
 
 See [test cases](https://github.com/aamaliaa/mta/blob/master/test/mta.js) for more examples.
 
-Replace `'your-api-key'` in `test/config.js` with your own MTA API key then run:
-
 ```
-npm test
+MTA_API_KEY='your-api-key-here' npm test
 ```
 
 ## To do

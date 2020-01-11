@@ -114,4 +114,18 @@ describe('MTA', function () {
     });
   });
 
+  it('should get schedule info for all stations with feed_id', function () {
+    return mta.schedulesForFeed(1)
+    .then(function (result) {
+      result.should.have.property('schedule');
+      result.should.have.property('updatedOn');
+      for (var stopId in result.schedule) {
+        var stopSchedule = result.schedule[stopId];
+        stopSchedule.should.be.an.Object();
+        stopSchedule.should.have.property('N');
+        stopSchedule.should.have.property('S');
+      }
+    });
+  });
+
 });

@@ -24,7 +24,7 @@ describe('MTA', function () {
   it('should return info for all MTA subway stops', function () {
     return mta.stop()
     .then(function (result) {
-      result.should.be.an.Object;
+      result.should.be.an.Object();
     });
   });
 
@@ -67,7 +67,7 @@ describe('MTA', function () {
   it('should get MTA service status for 1 type', function () {
     return mta.status(serviceType)
     .then(function (result) {
-      result.should.be.an.Array;
+      result.should.be.an.Array();
     });
   });
 

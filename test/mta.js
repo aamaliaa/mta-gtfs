@@ -24,7 +24,7 @@ describe('MTA', function () {
   it('should return info for all MTA subway stops', function () {
     return mta.stop()
     .then(function (result) {
-      result.should.be.an.Object;
+      result.should.be.an.Object();
     });
   });
 
@@ -67,7 +67,7 @@ describe('MTA', function () {
   it('should get MTA service status for 1 type', function () {
     return mta.status(serviceType)
     .then(function (result) {
-      result.should.be.an.Array;
+      result.should.be.an.Array();
     });
   });
 
@@ -111,6 +111,20 @@ describe('MTA', function () {
       stopIds.forEach(function (val) {
         result.schedule.should.have.property(val);
       });
+    });
+  });
+
+  it('should get schedule info for all stations with feed_id', function () {
+    return mta.schedulesForFeed(1)
+    .then(function (result) {
+      result.should.have.property('schedule');
+      result.should.have.property('updatedOn');
+      for (var stopId in result.schedule) {
+        var stopSchedule = result.schedule[stopId];
+        stopSchedule.should.be.an.Object();
+        stopSchedule.should.have.property('N');
+        stopSchedule.should.have.property('S');
+      }
     });
   });
 

@@ -24,7 +24,7 @@
   "homepage": "https://github.com/aamaliaa/mta-gtfs",
   "dependencies": {
     "csv-parse": "^1.0.1",
-    "node-fetch": "^1.3.3",
+    "node-fetch": "^2.6.1",
     "protobufjs": "^5.0.1",
     "underscore": "^1.8.2",
     "xml2js": "^0.4.5"
